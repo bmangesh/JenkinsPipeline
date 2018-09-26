@@ -1,43 +1,29 @@
-node {
-   
-   
-    
-    // Clone sample git repo
-    stage('clone sources') {
-    git url: 'https://github.com/leereilly/hello-world-java.git'
-    }
-    
-    stage('Compile hello world java pro') {
-        sh 'javac  HelloWorld.java'
-    }
-    
-    stage ('Run Hello-World java program') {
-       sh  'java HelloWorld'
-    }
-    
-    
-    
-    if (env.BRANCH_NAME == 'master') {
-                echo 'I only execute on the master branch'
-            } else {
-                echo 'I execute elsewhere'
-            }
+#!/usr/bin/env groovy
+
+pipeline {
+    agent any
+        parameters {
+            choice(
+                name: 'BUILD_TYPE',
+                choices:"Nightly\nSnapshot\nRelease",
+                description: "Build Type")
             
-    
-    stage ('SelectBranch') {
-    env.BRANCH_NAME = input(
-    id: 'BRANCH_NAME', message: 'Which Branch to\'s Build?', parameters: [
-    [$class: 'TextParameterDefinition', defaultValue: 'master', description: 'Environment', name: 'env']
-    ])
-    echo ("Env: "+BRANCH_NAME)        
-    }
-    
-    if (env.BRANCH_NAME == 'master') {
-                echo 'I only execute on the master branch'
-            } else {
-                echo 'I execute elsewhere'
-            }
+            string(name: 'BRANCH_TO_BE_BUILT', defaultValue: '${SE_DEFAULT_BRANCH}', description: 'Branch To Be Built')
+            string(name: 'UI_VERSION', defaultValue: '${SE_DEFAULT_BRANCH}')
+            booleanParam(name: 'FULL_BUILD', defaultValue: false)
+            booleanParam(name: 'PATCH_BUILD', defaultValue: true)
+            choice(name: 'WLS_VERSION', choices: ['12.2.1.2.0', '12.1.3'], description: 'WLS Client Version')
             
-           
+            
+    }
+    stages {
+        stage("build") {
+            steps {
+                //echo "Working"
+                echo "Hello ${params.BUILD_TYPE}"
+                echo "Global ${SE_DEFAULT_BRANCH}"
+            }
+        }
+    }
     
 }
