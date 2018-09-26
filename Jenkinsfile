@@ -29,11 +29,5 @@ pipeline {
         }
     }
     
-    stage('do optional stuff?') {
-    userInput = input(
-        id: 'userInput', message: "Some important question?", parameters: [
-        booleanParam(defaultValue: false, description: 'really?', name: 'myValue')
-    ])
-}
     
 }
