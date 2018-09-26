@@ -22,6 +22,7 @@ pipeline {
                 //echo "Working"
                 echo "Hello ${params.BUILD_TYPE}"
                 echo "Global ${SE_DEFAULT_BRANCH}"
+                choice(name: 'WLS_VERSION', choices: ['12.2.1.2.0', '12.1.3'], description: 'WLS Client Version')
             }
         }
     }
