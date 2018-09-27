@@ -2,7 +2,11 @@
 
 pipeline {
     agent any
-    BRANCH_PATTERN=*
+    environment {
+        BRANCH_PATTERN= '*'
+    }
+    
+    
         parameters {
             choice(
                 name: 'BUILD_TYPE',
