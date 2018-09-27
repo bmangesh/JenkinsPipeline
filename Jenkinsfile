@@ -63,7 +63,7 @@ pipeline {
         
         stage("Run Script") {
         steps {
-         sh "runScript.sh"  
+         sh 'runScript.sh'  
             
         }
         
