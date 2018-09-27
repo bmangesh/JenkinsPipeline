@@ -50,7 +50,8 @@ pipeline {
                 checkout([$class: 'GitSCM',
                     branches: [[name: "origin/${BRANCH_PATTERN}"]],
                     doGenerateSubmoduleConfigurations: false,
-                    extensions: [[$class: 'LocalBranch']],
+                   // extensions: [[$class: 'LocalBranch']],
+                    extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'MyDirectory']],
                     submoduleCfg: [],
                     userRemoteConfigs: [[
                         credentialsId: 'bmangesh',
