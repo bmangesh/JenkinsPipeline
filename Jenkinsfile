@@ -29,6 +29,15 @@ pipeline {
         }
     }
     
+    stage("Clone UI Branch") {
+        steps {
+         echo "Cloning UI Branch"   
+            
+        }
+        
+    }
+    
+    
        
     
 }
