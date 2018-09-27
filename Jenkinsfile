@@ -27,15 +27,17 @@ pipeline {
                 choice(name: 'WLS_VERSION', choices: ['12.2.1.2.0', '12.1.3'], description: 'WLS Client Version')
             }
         }
-    }
-    
-    stage("Clone UI Branch") {
+        
+        stage("Clone UI Branch") {
         steps {
          echo "Cloning UI Branch"   
             
         }
         
     }
+    }
+    
+    
     
     
        
