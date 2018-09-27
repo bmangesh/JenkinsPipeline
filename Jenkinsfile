@@ -53,8 +53,8 @@ pipeline {
                     extensions: [[$class: 'LocalBranch']],
                     submoduleCfg: [],
                     userRemoteConfigs: [[
-                        credentialsId: 'bitwiseman_github',
-                        url: 'https://github.com/bitwiseman/hermann']]])
+                        credentialsId: 'bmangesh',
+                        url: 'https://github.com/bmangesh/JenkinsPipeline']]])
             }
         }
 
