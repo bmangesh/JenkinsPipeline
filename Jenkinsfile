@@ -60,6 +60,14 @@ pipeline {
 
         
             //*-------------------------------
+        
+        stage("Run Script") {
+        steps {
+         sh "sh runScript.sh"  
+            
+        }
+        
+    }
     }
     
     
