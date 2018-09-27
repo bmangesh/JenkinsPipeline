@@ -2,6 +2,7 @@
 
 pipeline {
     agent any
+    BRANCH_PATTERN=*
         parameters {
             choice(
                 name: 'BUILD_TYPE',
@@ -35,7 +36,30 @@ pipeline {
         }
         
     }
+        
+        
+        //*------------------------------
+        
+        
+        stage ('Prepare') {
+            steps {
+                checkout([$class: 'GitSCM',
+                    branches: [[name: "origin/${BRANCH_PATTERN}"]],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [[$class: 'LocalBranch']],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[
+                        credentialsId: 'bitwiseman_github',
+                        url: 'https://github.com/bitwiseman/hermann']]])
+            }
+        }
+
+        
+            //*-------------------------------
     }
+    
+    
+    
     
     
     
