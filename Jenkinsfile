@@ -5,6 +5,10 @@ pipeline {
     environment {
         BRANCH_PATTERN= '*'
     }
+    options {
+    // Only keep the 10 most recent builds
+    buildDiscarder(logRotator(numToKeepStr:'10'))
+  }
 
 
         parameters {
