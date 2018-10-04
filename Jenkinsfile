@@ -42,7 +42,7 @@ pipeline {
         }
         // send to email
         stage ('Send Email Notification') {
-            stapes {
+            steps {
                 // send to email
                 emailext (
             subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
