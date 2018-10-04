@@ -53,5 +53,16 @@ pipeline {
             }
         }
 
+        post {
+        always {
+          step([$class: 'Mailer',
+            notifyEveryUnstableBuild: true,
+            recipients: "mangesh.bharsakle@afourtech.com,mangesh.bharsakle@fixstream.com",
+            sendToIndividuals: true])
+        }
+        success {
+            mail to:"mangesh.bharsakle@afourtech.com,mangesh.bharsakle@fixstream.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we passed."
+        }
+      }
      }
 } 
