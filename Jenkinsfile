@@ -40,7 +40,8 @@ pipeline {
                         url: 'https://github.com/bmangesh/JenkinsPipeline']]])
             }
         }
-        post {
+     }
+    post {
         always {
           step([$class: 'Mailer',
             notifyEveryUnstableBuild: true,
@@ -51,5 +52,4 @@ pipeline {
             mail to:"mangesh.bharsakle@afourtech.com,mangesh.bharsakle@fixstream.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we passed."
         }
       }
-     }
 } 
