@@ -20,6 +20,11 @@ pipeline {
             booleanParam(name: 'PATCH_BUILD', defaultValue: true)
             choice(name: 'WLS_VERSION', choices: ['12.2.1.2.0', '12.1.3'], description: 'WLS Client Version')
     }
+    
+    options {
+    // Only keep the 10 most recent builds
+    buildDiscarder(logRotator(numToKeepStr:'10'))
+  }
     stages {
         stage("build") {
             steps {
