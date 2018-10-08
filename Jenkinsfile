@@ -50,8 +50,10 @@ pipeline {
                 sh "git tag v0.1"
                 sh "git push https://${Username}:${Password}@${GIT_URL} v0.1"
 
-            }
-        }
+              }
+           }
+        }   
+            
     
      }
     post {
