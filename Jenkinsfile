@@ -40,6 +40,19 @@ pipeline {
                         url: 'https://github.com/bmangesh/JenkinsPipeline']]])
             }
         }
+        stage('Git Push To Origin') {
+
+        steps {
+
+            withCredentials([usernamePassword(credentialsId: '63843ac8-7069-4031-926e-568111134c26', passwordVariable: 'Password', usernameVariable: 'Username')]) {
+
+
+                sh "git tag v0.1"
+                sh "git push https://${Username}:${Password}@${GIT_URL} v0.1"
+
+            }
+        }
+    
      }
     post {
         always {
