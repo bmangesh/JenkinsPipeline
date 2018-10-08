@@ -48,7 +48,7 @@ pipeline {
 
 
                 sh "git tag v0.5"
-                sh "git push https://${Username}:${Password}@github.com/bmangesh/JenkinsDSL.git v0.5"
+                sh "git push https://${Username}:${Password}@github.com/bmangesh/JenkinsPipeline v0.5"
 
               }
            }
