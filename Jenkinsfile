@@ -50,7 +50,7 @@ pipeline {
                 echo "$Username" 
 
                 //sh "git tag v0.5"
-                sh "git push https://${Username}:'${Password}'@github.com/bmangesh/JenkinsPipeline v0.5"
+                sh "git push https://${Username}:\"${Password}\"@github.com/bmangesh/JenkinsPipeline v0.5"
 
               }
            }
