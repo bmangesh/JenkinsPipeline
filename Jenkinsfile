@@ -34,7 +34,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: '63843ac8-7069-4031-926e-568111134c26', passwordVariable: 'Password', usernameVariable: 'Username')]) {
                     sh "git tag -d v0.5"           
                     sh "git tag v0.5"
-                sh "git push https://${Username}:'${Password}'@github.com/bmangesh/JenkinsPipeline origin v0.5"
+                sh "git push https://${Username}:'${Password}'@github.com/bmangesh/JenkinsPipeline.git  v0.5"
 
               }
            
