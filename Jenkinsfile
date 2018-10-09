@@ -31,8 +31,8 @@ pipeline {
 
         steps {
 
-                
-                sh "git push origin --tags"
+                sh "git tag v0.1"
+                sh "git push git@github.com:bmangesh/JenkinsDSL.git  --tags"
                    
                 }
            
