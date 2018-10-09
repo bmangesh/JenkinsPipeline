@@ -47,7 +47,7 @@ pipeline {
             sh 'git tag v0.6'
             sh 'git push origin --tags'
                 }
-           }
+           
         }   
             
     
