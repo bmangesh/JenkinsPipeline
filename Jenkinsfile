@@ -27,20 +27,7 @@ pipeline {
             }
         }
 
-        stage ('Clone and Build UI') {
-            steps {
-                checkout([$class: 'GitSCM',
-                    branches: [[name: "origin/${BRANCH_PATTERN}"]],
-                    doGenerateSubmoduleConfigurations: false,
-                   // extensions: [[$class: 'LocalBranch']],
-                    extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'MyDirectory']],
-                    submoduleCfg: [],
-                    userRemoteConfigs: [[
-                        credentialsId: 'bmangesh',
-                        url: 'https://github.com/bmangesh/JenkinsPipeline']]])
-            }
-        }
-        stage('Git Push To Origin') {
+                stage('Git Push To Origin') {
 
         steps {
 
