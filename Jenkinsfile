@@ -33,6 +33,7 @@ pipeline {
                 sh 'git tag v0.1'
                 sshagent (credentials: ['sshgit']) {
                     sh 'git push --tags'
+                }
                    
                 }
            
