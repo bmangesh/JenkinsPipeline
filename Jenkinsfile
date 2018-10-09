@@ -44,8 +44,8 @@ pipeline {
 
         steps {
 
-            sshagent (credentials: ['jenkins-generated-ssh-key']) {
-                    sh 'git push --tags'
+            sh 'git tag v0.6'
+            sh 'git push origin --tags'
                 }
            }
         }   
