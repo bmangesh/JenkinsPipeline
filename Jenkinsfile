@@ -28,7 +28,6 @@ pipeline {
         }
 
                 stage('Git Push To Origin') {
-
         steps {
                 
                    
@@ -39,7 +38,7 @@ pipeline {
               }
            
         }   
-            
+                }     
     
      }
     post {
