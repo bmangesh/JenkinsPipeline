@@ -32,7 +32,7 @@ pipeline {
         steps {
 
                 sh "git tag v0.1"
-                sh "git push ssh://git@github.com:bmangesh/JenkinsDSL.git  --tags"
+                sh "git push ssh://git@github.com/bmangesh/JenkinsDSL.git  --tags"
                    
                 }
            
