@@ -31,9 +31,9 @@ pipeline {
 
         steps {
 
-                sshagent(['git-credentials-id']) {
+                
                 sh "git push origin --tags"
-                   }
+                   
                 }
            
         }   
